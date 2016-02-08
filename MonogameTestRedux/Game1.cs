@@ -1,5 +1,7 @@
 ﻿#region Using Statements
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,6 +19,10 @@ namespace MonogameTestRedux
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		Texture2D testImage;
+
+		Transform t;
+		Transform parent;
 
 		public Game1 ()
 		{
@@ -35,7 +41,19 @@ namespace MonogameTestRedux
 		{
 			// TODO: Add your initialization logic here
 			base.Initialize ();
-				
+
+			t = new Transform() {
+				x = 32, 
+				y = 32,
+				origin = new Vector2(128, 128)
+			};
+
+			parent = new Transform() {
+				x = 320,
+				y = 320
+			};
+
+			t.parent = parent;
 		}
 
 		/// <summary>
@@ -46,6 +64,9 @@ namespace MonogameTestRedux
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch (GraphicsDevice);
+
+
+			testImage = Content.Load<Texture2D>("Area1Tileset");
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -76,8 +97,20 @@ namespace MonogameTestRedux
 		protected override void Draw (GameTime gameTime)
 		{
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
+
+			parent.angleDeg += 1;
+
+
 		
 			//TODO: Add your drawing code here
+
+			Console.WriteLine(":)");
+
+			spriteBatch.Begin();
+
+			spriteBatch.Draw(testImage, t.renderPosition, null, null, t.globalOrigin, t.renderRotation, t.renderScale);
+
+			spriteBatch.End();
             
 			base.Draw (gameTime);
 		}
