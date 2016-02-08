@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace BoltMonoGame
+namespace Chill
 {
 	public class Transform
 	{

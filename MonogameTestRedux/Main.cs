@@ -8,7 +8,7 @@ using MonoMac.Foundation;
 
 #endregion
 
-namespace BoltMonoGame
+namespace Chill
 {
 	static class Program
 	{

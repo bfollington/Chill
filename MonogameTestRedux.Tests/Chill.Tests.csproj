@@ -50,9 +50,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonogameTestRedux\BoltMonoGame.csproj">
+    <ProjectReference Include="..\MonogameTestRedux\Chill.csproj">
       <Project>{875A8944-F8D1-4602-A527-12E460BBC0EA}</Project>
-      <Name>BoltMonoGame</Name>
+      <Name>Chill</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 #endregion
 
-namespace BoltMonoGame
+namespace Chill
 {
 	/// <summary>
 	/// This is the main type for your game.

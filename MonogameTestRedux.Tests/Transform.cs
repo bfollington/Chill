@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
-using BoltMonoGame;
+using Chill;
 
-namespace BoltMonoGame
+namespace Chill
 {
 	[TestFixture ()]
 	public class TransformTests
