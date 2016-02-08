@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonogameTestRedux", "MonogameTestRedux\MonogameTestRedux.csproj", "{875A8944-F8D1-4602-A527-12E460BBC0EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoltMonoGame", "MonogameTestRedux\BoltMonoGame.csproj", "{875A8944-F8D1-4602-A527-12E460BBC0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonogameTestRedux.Tests", "MonogameTestRedux.Tests\MonogameTestRedux.Tests.csproj", "{7210F533-656E-4EE8-BA19-438B231CA260}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoltMonoGame.Tests", "MonogameTestRedux.Tests\BoltMonoGame.Tests.csproj", "{7210F533-656E-4EE8-BA19-438B231CA260}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

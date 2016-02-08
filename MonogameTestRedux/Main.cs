@@ -8,7 +8,7 @@ using MonoMac.Foundation;
 
 #endregion
 
-namespace MonogameTestRedux
+namespace BoltMonoGame
 {
 	static class Program
 	{

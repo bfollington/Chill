@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 #endregion
 
-namespace MonogameTestRedux
+namespace BoltMonoGame
 {
 	/// <summary>
 	/// This is the main type for your game.

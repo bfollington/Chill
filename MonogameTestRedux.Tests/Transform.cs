@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
-using MonogameTestRedux;
+using BoltMonoGame;
 
-namespace MonogameTestRedux.Tests
+namespace BoltMonoGame
 {
 	[TestFixture ()]
 	public class TransformTests

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace MonogameTestRedux
+namespace BoltMonoGame
 {
 	public class Transform
 	{
