@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Input;
+using Artemis;
+using Artemis.System;
 
 #endregion
 
@@ -19,16 +21,14 @@ namespace Chill
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D testImage;
 
-        Transform t;
-        Transform parent;
+        EntityWorld entityWorld;
 
         public Game1 ()
         {
             graphics = new GraphicsDeviceManager (this);
             Content.RootDirectory = "Content";                
-            graphics.IsFullScreen = true;        
+            graphics.IsFullScreen = false;        
         }
 
         /// <summary>
@@ -39,21 +39,23 @@ namespace Chill
         /// </summary>
         protected override void Initialize ()
         {
+
+            spriteBatch = new SpriteBatch (GraphicsDevice);
+            entityWorld = new EntityWorld();
+
+            EntitySystem.BlackBoard.SetEntry("SpriteBatch", this.spriteBatch);
+            EntitySystem.BlackBoard.SetEntry("ContentManager", this.Content);
+
+            this.entityWorld.InitializeAll(true);
+
+            var e = entityWorld.CreateEntity();
+            e.AddComponentFromPool<Transform>();
+            e.AddComponentFromPool<Texture2DRenderer>();
+            e.GetComponent<Transform>().x = 128;
+            e.GetComponent<Texture2DRenderer>().TextureName = "Area1Tileset";
+
             // TODO: Add your initialization logic here
             base.Initialize ();
-
-            t = new Transform() {
-                x = 32, 
-                y = 32,
-                origin = new Vector2(128, 128)
-            };
-
-            parent = new Transform() {
-                x = 320,
-                y = 320
-            };
-
-            t.parent = parent;
         }
 
         /// <summary>
@@ -62,13 +64,7 @@ namespace Chill
         /// </summary>
         protected override void LoadContent ()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch (GraphicsDevice);
 
-
-            testImage = Content.Load<Texture2D>("Area1Tileset");
-
-            //TODO: use this.Content to load your game content here 
         }
 
         /// <summary>
@@ -86,7 +82,10 @@ namespace Chill
                 Exit ();
             }
             #endif
-            // TODO: Add your update logic here            
+            // TODO: Add your update logic here     
+
+            entityWorld.Update();
+                          
             base.Update (gameTime);
         }
 
@@ -98,17 +97,9 @@ namespace Chill
         {
             graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
 
-            parent.angleDeg += 1;
-
-
-        
-            //TODO: Add your drawing code here
-
-            Console.WriteLine(":)");
-
             spriteBatch.Begin();
 
-            spriteBatch.Draw(testImage, t.renderPosition, null, null, t.globalOrigin, t.renderRotation, t.renderScale);
+            entityWorld.Draw();
 
             spriteBatch.End();
             

@@ -3,8 +3,8 @@ using Artemis;
 using Artemis.System;
 using Artemis.Attributes;
 using Artemis.Manager;
-using MonogameTestRedux;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 
 namespace Chill
@@ -20,8 +20,10 @@ namespace Chill
             var transform = entity.GetComponent<Transform>();
             var renderer = entity.GetComponent<Texture2DRenderer>();
             var spriteBatch = BlackBoard.GetEntry<SpriteBatch>("SpriteBatch");
+            var texture = BlackBoard.GetEntry<ContentManager>("ContentManager").Load<Texture2D>(renderer.TextureName);
 
-            spriteBatch.Draw(renderer.Texture, transform.renderPosition, null, null, transform.globalOrigin, transform.renderRotation, transform.renderScale);
+
+            spriteBatch.Draw(texture, transform.renderPosition, null, null, transform.globalOrigin, transform.renderRotation, transform.renderScale);
         }
     }
 }
