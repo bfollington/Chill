@@ -1,9 +1,12 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Artemis.Attributes;
+using Artemis;
 
 namespace Chill
 {
-    public class Transform
+    [ArtemisComponentPool(InitialSize = 5, IsResizable = true, ResizeSize = 20, IsSupportMultiThread = false)]
+    public class Transform : ComponentPoolable
     {
         public Transform parent { get; set; }
         public float x { get; set; }
@@ -93,9 +96,13 @@ namespace Chill
             }
         }
 
-        public Transform()
-        {
+        public Transform() { }
 
+        public override void CleanUp ()
+        {
+            base.CleanUp ();
+
+            parent = null;
         }
     }
 }
